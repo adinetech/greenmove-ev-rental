@@ -65,15 +65,14 @@ GreenMove is a comprehensive platform similar to Yulu, Bounce, and Lime, enablin
 - **Geospatial Queries** - Location-based search
 
 ### Frontend
-- **React 18** + **Vite** - UI framework
-- **React Router** - Navigation
-- **Axios** - API calls
-- **Tailwind CSS** - Styling
-- **Framer Motion** - Animations
-- **Leaflet** - Interactive maps
-- **Tailwind CSS** - Styling
-- **Leaflet/Mapbox** - Interactive maps
-- **Framer Motion** - Animations
+- **React 18** + **Vite** - UI framework & dev server
+- **React Router** - Client-side navigation
+- **Axios** - HTTP client for API calls
+- **Tailwind CSS** - Utility-first styling
+- **Framer Motion** - Smooth animations
+- **Leaflet** - Interactive maps with OpenStreetMap
+- **jsPDF** - PDF invoice generation
+- **Lucide React** - Icon library
 
 ---
 
@@ -90,8 +89,15 @@ GreenMove/
 │   ├── utils/           # Helpers & calculations
 │   └── server.js        # Entry point
 │
-├── frontend/            # React app (coming soon)
-│   └── ...
+├── frontend/            # React app
+│   ├── src/
+│   │   ├── components/  # Reusable UI components
+│   │   ├── pages/       # Page components
+│   │   ├── context/     # Global state (AuthContext)
+│   │   ├── utils/       # Helper functions (invoiceGenerator)
+│   │   └── App.jsx      # Main app component
+│   ├── public/          # Static assets
+│   └── index.html       # Entry HTML
 │
 └── README.md            # This file
 ```
@@ -120,22 +126,37 @@ cp .env.example .env
 # Edit .env with your MongoDB URI and JWT secret
 ```
 
-3. **Start MongoDB**
+3. **Setup Frontend**
+```bash
+cd ../frontend
+npm install
+```
+
+4. **Start MongoDB**
 ```bash
 mongod
 ```
 
-4. **Seed Database (Optional)**
+5. **Seed Database (Optional)**
 ```bash
+cd backend
 npm run seed
 ```
 This creates sample vehicles, stations, and users.
 
-5. **Start Backend Server**
+6. **Start Backend Server**
 ```bash
+cd backend
 npm run dev
 ```
 Server runs at: **http://localhost:5000**
+
+7. **Start Frontend (New Terminal)**
+```bash
+cd frontend
+npm run dev
+```
+App runs at: **http://localhost:5173**
 
 ---
 
