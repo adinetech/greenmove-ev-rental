@@ -112,7 +112,7 @@ const AdminFleetPage = () => {
       const { data } = await axios.get('/vehicles');
       setVehicles(data.data);
     } catch (error) {
-      console.error('Failed to fetch vehicles:', error);
+      // Error fetching vehicles
     } finally {
       setLoading(false);
     }

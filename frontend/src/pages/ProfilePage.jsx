@@ -29,7 +29,6 @@ const ProfilePage = () => {
   const [deleteError, setDeleteError] = useState('');
 
   useEffect(() => {
-    console.log('User in profile:', user);
     if (user) {
       setFormData({
         name: user.name || '',

@@ -41,7 +41,6 @@ const ActiveRidePage = () => {
         navigate('/rides');
       }
     } catch (error) {
-      console.error('Failed to fetch active ride:', error);
       navigate('/rides');
     } finally {
       setLoading(false);

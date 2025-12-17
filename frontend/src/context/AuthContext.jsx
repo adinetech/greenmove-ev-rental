@@ -24,11 +24,9 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        const { data } = await axios.get('/auth/me');
-        console.log('User loaded:', data.data);
+        const { data } = await api.get('/auth/me');
         setUser(data.data);
       } catch (error) {
-        console.error('Auth check failed:', error);
         localStorage.removeItem('token');
         delete axios.defaults.headers.common['Authorization'];
         setUser(null);

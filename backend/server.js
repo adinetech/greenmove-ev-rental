@@ -26,13 +26,7 @@ app.use(cors()); // Enable CORS
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
-// Request logging middleware (development)
-if (process.env.NODE_ENV === 'development') {
-  app.use((req, res, next) => {
-    console.log(`${req.method} ${req.path}`);
-    next();
-  });
-}
+
 
 // Health check route
 app.get('/', (req, res) => {
@@ -76,24 +70,7 @@ app.use(errorHandler); // Global error handler
 // Start server
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
-  console.log('');
-  console.log('═══════════════════════════════════════════════════════');
-  console.log('🌱 GreenMove Backend Server');
-  console.log('═══════════════════════════════════════════════════════');
-  console.log(`🚀 Server running in ${process.env.NODE_ENV || 'development'} mode`);
-  console.log(`📡 Listening on port ${PORT}`);
-  console.log(`🔗 API URL: http://localhost:${PORT}`);
-  console.log('');
-  console.log('📚 Available Routes:');
-  console.log('   Auth:     /api/auth');
-  console.log('   Users:    /api/users');
-  console.log('   Vehicles: /api/vehicles');
-  console.log('   Rides:    /api/rides');
-  console.log('   Stations: /api/stations');
-  console.log('   Admin:    /api/admin');
-  console.log('   Issues:   /api/issues');
-  console.log('═══════════════════════════════════════════════════════');
-  console.log('');
+  console.log(`🌱 GreenMove Backend - http://localhost:${PORT}`);
 });
 
 // Handle unhandled promise rejections

@@ -26,7 +26,7 @@ const AdminStationsPage = () => {
       const { data } = await axios.get('/stations');
       setStations(data.data);
     } catch (error) {
-      console.error('Failed to fetch stations:', error);
+      // Error handling
     } finally {
       setLoading(false);
     }

@@ -115,7 +115,8 @@ GreenMove/
 
 1. **Clone the repository**
 ```bash
-cd GreenMove
+git clone https://github.com/adinetech/greenmove-ev-rental.git
+cd greenmove-ev-rental
 ```
 
 2. **Setup Backend**
@@ -137,40 +138,48 @@ npm install
 mongod
 ```
 
-5. **Seed Database (Optional)**
+5. **Start Both Servers (From Root Directory)**
 ```bash
-cd backend
-npm run seed
+cd ..
+npm install
+npm start
 ```
-This creates sample vehicles, stations, and users.
 
-6. **Start Backend Server**
+This will:
+- Install the required `concurrently` package
+- Start backend server at **http://localhost:5000**
+- Start frontend dev server at **http://localhost:5173**
+- Both run simultaneously in one terminal!
+
+### Alternative: Start Individually
+
+If you prefer separate terminals:
+
+**Terminal 1 (Backend):**
 ```bash
 cd backend
 npm run dev
 ```
-Server runs at: **http://localhost:5000**
 
-7. **Start Frontend (New Terminal)**
+**Terminal 2 (Frontend):**
 ```bash
 cd frontend
 npm run dev
 ```
-App runs at: **http://localhost:5173**
 
 ---
 
-## 🔑 Default Credentials
+## 🔑 Getting Started
 
-After seeding the database:
-
-**Admin Account:**
-- Email: `admin@greenmove.com`
-- Password: `admin123`
-
-**User Account:**
-- Email: `john@example.com`
-- Password: `password123`
+**Create Your Accounts:**
+1. Register as a regular user to test user features
+2. For admin access, manually update your user role in MongoDB:
+```javascript
+db.users.updateOne(
+  { email: "your-email@example.com" },
+  { $set: { role: "admin" } }
+)
+```
 
 ---
 
