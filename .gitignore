@@ -50,3 +50,6 @@ coverage/
 *.swo
 *~
 .cache
+
+# Private study materials
+PANEL_DEFENSE_GUIDE.md
