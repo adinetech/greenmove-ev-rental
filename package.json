@@ -1,0 +1,16 @@
+{
+  "name": "greenmove",
+  "version": "1.0.0",
+  "description": "GreenMove - Eco-Friendly Transportation Platform",
+  "scripts": {
+    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "npm run dev --prefix backend",
+    "frontend": "npm run dev --prefix frontend"
+  },
+  "keywords": ["mern", "eco-transport"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
